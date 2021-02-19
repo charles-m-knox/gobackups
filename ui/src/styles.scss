@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/* You can add global styles to this file, and also import other style files */
+
+.gray-bg {
+  background-color: #e7e7e7;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.btn-primary,
+.list-group-item.active {
+  background-color: #0071c5;
+}
+
+.nav-link {
+  color: #0071c5;
+}
+
+.btn {
+  position: relative;
+  min-width: 96px;
+  border-radius: 2px;
+  font-size: 14px;
+  white-space: normal;
+}
+
+.nav-toggler-bg {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 113, 197, 1.0%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.jumbotron-header-bg-image {
+  /* set background-image to nothing, without gradient for browser fallback */
+  background-image: #484848;
+  /* example: */
+  /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.4) 100%), url('/assets/bg/patrick-tomasso-GXXYkSwndP4-unsplash.jpg'); */
+  background-size: 100% auto;
+  background-position: center;
+  border-radius: 0;
+  color: white;
+}
+
+.navbar-logo {
+  background-color: white;
+  line-height: 1;
+  width: 70px;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  margin-right: 16px;
+}
+
+.padded-nav-item {
+  padding: 0px 8px;
+  color: #003c71;
+}
+
+body {
+  font-size: 12px;
+  margin-bottom: 60px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.app-wide-flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}

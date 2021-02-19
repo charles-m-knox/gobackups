@@ -1,0 +1,10 @@
+DELETE/
+
+deploy/log.json
+deploy/config.yml
+# deploy/docker-compose.yml
+
+example/target_dir/*.tar.gz
+example/target_dir/*.tar.gz.gpg
+example/target_dir/rsync_target/source_dir
+example/log*.json

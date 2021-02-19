@@ -1,0 +1,37 @@
+---
+
+backups:
+  - sourcePath: /example/source_dir
+    interval: 60s
+    description: Simple 60-second multi-target backup
+    id: source_dir
+    targets:
+      - targetPath: /example/target_dir/rsync_target
+        type: rsync
+        id: target_dir_rsync
+
+      - targetPath: /example/target_dir/source_dir.tar.gz
+        type: targz
+        id: target_dir_targz
+
+      - targetPath: /example/target_dir/source_dir.tar.gz.gpg
+        type: gpgtargz
+        passphraseFilePath: /example/passphrase.txt
+        id: target_dir_gpgtargz
+
+  - sourcePath: /example/target_dir/source_dir.tar.gz.gpg
+    interval: 60s
+    description: Simple 60-second copy of an other backup result
+    id: source_dir
+    await:
+      - target_dir_gpgtargz
+    targets:
+      - targetPath: /example/target_dir/source_dir_2.tar.gz.gpg
+        type: rsync
+        id: target_dir_rsync
+        await:
+          - target_dir_gpgtargz
+
+logFile: log.json
+maxLogEntries: 10000
+shellCommand: /bin/ash

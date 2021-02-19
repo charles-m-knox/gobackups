@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - ../ui/dist/go-backups-ui:/usr/share/nginx/html
+      - ../deploy/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "127.0.0.1:12480:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  gobackups:
+    image: gobackups-api:latest
+    restart: unless-stopped
+    volumes:
+      # - /:/host/
+      - ./log-example.json:/log.json
+      - ./config.yml:/config.yml
+      - ./:/example
+    ports:
+      - "127.0.0.1:12403:12403"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"

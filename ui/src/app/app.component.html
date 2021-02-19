@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg shadow-sm" style="min-height: 70px; padding: 0;">
+  <div class="navbar-logo">
+    <a href="#"><img width="54px" alt="" src="/assets/folder-check.svg" /></a>
+  </div>
+  <button class="navbar-toggler navbar-dark mr-3 rounded-0" (click)="toggleNavCollapse()" type="button"
+    data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded=""
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse mb-lg-0 mb-2" [class.show]="navbarCollapseShow" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li *ngFor="let page of data.pages" class="nav-item padded-nav-item"
+        [class.active]="data.currentPage === page.page" [class.bold-text]="data.currentPage === page.page">
+        <a class="nav-link" (click)="helpers.setPage(page.page)" [routerLink]="page.page">
+          {{ page.caption | uppercase }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main role="main">
+  <router-outlet></router-outlet>
+</main>
+<footer class="footer navbar-inverse navbar gray-bg" style="width: 100%; height: 56px;">
+  <div class="container-fluid">
+    <div class="navbar-nav mr-auto">
+      <div class="nav-item active">
+        <span class="nav-link"></span>
+      </div>
+    </div>
+    <h6 class="small pull-right">
+      © icode
+    </h6>
+  </div>
+</footer>

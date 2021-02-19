@@ -1,0 +1,25 @@
+---
+
+backups:
+  - sourcePath: /home/user/dev/go-backups/_testfiles/sourceDir
+    interval: 60s
+    description: Simple 60-second multi-target backup
+    id: 39cd1dae-d5c0-49ef-806c-a9b0ac6869ef
+    targets:
+      - targetPath: /home/user/dev/go-backups/_testfiles/rsyncTargetDir
+        type: rsync
+        id: 49eac4f2-eb84-48f3-80ce-e8435f90b2a6
+      - targetPath: /home/user/dev/go-backups/_testfiles/rsyncTargetDir2
+        type: rsync
+        id: ee1b1dd5-1eec-4528-9af5-3d05d3101cb9
+      - targetPath: /home/user/dev/go-backups/_testfiles/tarTargetDir/sourceDir.tar.gz
+        type: targz
+        id: 3257c5c2-9254-42cb-b2b3-a9252e67b61e
+      - targetPath: /home/user/dev/go-backups/_testfiles/tarTargetDir/sourceDir.tar.gz.gpg
+        type: gpgtargz
+        passphraseFilePath: ./_testfiles/passphrase
+        id: 3c851b21-1a7d-4765-897c-a8ad58f00c66
+
+logFile: log.json
+maxLogEntries: 10000
+shellCommand: /bin/bash
